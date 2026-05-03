@@ -23,7 +23,10 @@ const simulerPaiement = async (req, res) => {
     }
 
     // Lock trajet and find available seat numbers
-    const [[trajet]] = await conn.query('SELECT capacite FROM trajets WHERE id = ? FOR UPDATE', [resa.trajet_id]);
+    const [[trajet]] = await conn.query(
+      'SELECT v.capacite FROM trajets t JOIN vehicules v ON t.vehicule_id = v.id WHERE t.id = ? FOR UPDATE OF t',
+      [resa.trajet_id]
+    );
     const [siegesPris] = await conn.query(
       'SELECT numero_siege FROM sieges_assignes WHERE trajet_id = ?',
       [resa.trajet_id]
