@@ -33,7 +33,7 @@ export default function TrajetsList() {
     }
   };
 
-  useEffect(() => { fetchTrajets(); }, []);
+  useEffect(() => { fetchTrajets(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSearch = (e) => { e.preventDefault(); fetchTrajets(); };
   const set = (field) => (e) => setFilters({ ...filters, [field]: e.target.value });

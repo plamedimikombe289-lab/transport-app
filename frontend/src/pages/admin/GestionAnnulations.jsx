@@ -21,7 +21,7 @@ export default function GestionAnnulations() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { load(); }, [filtre]);
+  useEffect(() => { load(); }, [filtre]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const ouvrirModal = (demande, act) => { setModal(demande); setAction(act); setCommentaire(''); };
   const fermerModal = () => { setModal(null); setAction(''); setCommentaire(''); };

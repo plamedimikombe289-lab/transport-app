@@ -22,7 +22,7 @@ export default function Passagers() {
       trajetService.getById(trajet_id)
     ]).then(([p, t]) => { setPassagers(p.data); setTrajet(t.data); }).finally(() => setLoading(false));
 
-  useEffect(() => { load(); }, [trajet_id]);
+  useEffect(() => { load(); }, [trajet_id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const ouvrirModal = (passager) => { setModal(passager); setRaison(''); };
   const fermerModal = () => { setModal(null); setRaison(''); };

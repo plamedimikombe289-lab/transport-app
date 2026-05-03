@@ -28,7 +28,7 @@ export default function ReservationDetail() {
       .catch(() => navigate('/mes-reservations'))
       .finally(() => setLoading(false));
 
-  useEffect(() => { load(); }, [id, navigate]);
+  useEffect(() => { load(); }, [id, navigate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleHistorique = async () => {
     if (!showHistorique && historique.length === 0) {

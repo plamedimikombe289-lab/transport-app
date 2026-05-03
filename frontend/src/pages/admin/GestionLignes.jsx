@@ -133,7 +133,7 @@ export default function GestionLignes() {
             <div className="form-group">
               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: 400 }}>
                 <input type="checkbox" checked={form.creer_retour} onChange={e => setForm({ ...form, creer_retour: e.target.checked })} />
-                Créer aussi la ligne retour ({form.ville_arrivee_id && form.ville_depart_id ? `${villes.find(v=>v.id==form.ville_arrivee_id)?.nom || '?'} → ${villes.find(v=>v.id==form.ville_depart_id)?.nom || '?'}` : '— → —'})
+                Créer aussi la ligne retour ({form.ville_arrivee_id && form.ville_depart_id ? `${villes.find(v=>String(v.id)===String(form.ville_arrivee_id))?.nom || '?'} → ${villes.find(v=>String(v.id)===String(form.ville_depart_id))?.nom || '?'}` : '— → —'})
               </label>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem' }}>
